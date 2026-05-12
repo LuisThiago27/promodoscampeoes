@@ -1,175 +1,238 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grupo VIP de Promoções</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grupo de Ofertas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(180deg, #006dc0 0%, #2ea8ff 100%);
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* FUNDO */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #0a0f2c, #000);
-    z-index: -1;
+.container{
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+    min-height:100vh;
+    position:relative;
 }
 
 /* TOPO */
-.top-bar {
-    background: #ff1a1a;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 14px;
+.top-badge{
+    width:85%;
+    margin:30px auto 20px;
+    background:#f5c400;
+    color:#1d1d1d;
+    padding:14px 18px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* CONTAINER */
-.container {
-    padding: 30px 20px;
+/* HERO */
+.hero{
+    padding:10px 25px 0;
+    text-align:center;
 }
 
-/* TITULO */
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
+.hero h1{
+    font-size:54px;
+    line-height:1;
+    font-weight:800;
+    margin-bottom:10px;
+    text-transform:uppercase;
 }
 
-/* SUB */
-.subtitle {
-    margin-top: 10px;
-    color: #ccc;
+.hero h1 span{
+    color:#f5c400;
+    display:block;
 }
 
-/* CARD */
-.card {
-    margin: 30px auto;
-    width: 220px;
-    height: 220px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid #ccc;
+.subtitle{
+    font-size:21px;
+    line-height:1.5;
+    color:#eaf6ff;
+    margin-top:25px;
+    font-weight:500;
 }
 
-/* BOTÃO */
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 18px 35px;
-    background: linear-gradient(90deg, #00ff88, #00cc66);
-    color: white;
-    font-weight: bold;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 18px;
-    box-shadow: 0 0 20px rgba(0,255,150,0.6);
-    transition: 0.3s;
+/* BENEFÍCIOS */
+.benefits{
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
-.btn:hover {
-    transform: scale(1.05);
+.benefit-item{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(8px);
+    padding:14px;
+    border-radius:16px;
+    font-size:16px;
+    font-weight:600;
 }
 
-/* TEXTO FINAL */
-.members {
-    margin-top: 20px;
-    font-size: 14px;
+/* IMAGEM */
+.image-area{
+    position:relative;
+    margin-top:30px;
 }
 
-/* RODAPÉ */
-.footer {
-    margin-top: 50px;
-    padding: 15px;
-    border-top: 1px solid #333;
-    font-size: 12px;
-    color: #aaa;
+.main-image{
+    width: 100%;
+    max-width: 270px;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 16px rgba(255,255,255,0.8))
+        drop-shadow(0 0 60px rgba(255,255,255,0.6))
+        drop-shadow(0 0 80px rgba(255,255,255,0.4));
+}
+
+/* CAIXAS */
+.boxes{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:10px;
+    z-index:-1;
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+/* CTA */
+.cta-wrapper{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:14px;
+    background:linear-gradient(to top, rgba(22,147,243,1), rgba(22,147,243,0));
+}
+
+.cta-btn{
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-decoration:none;
+    background:#18bc65;
+    color:#fff;
+    font-size:24px;
+    font-weight:800;
+    padding:22px;
+    border-radius:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    animation:pulse 2s infinite;
+}
+
+.cta-btn:hover{
+    transform:scale(1.02);
+}
+
+.wpp {
+    width: 100%;
+    max-width: 32px;
+}
+
+/* ANIMAÇÃO */
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.03);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* MOBILE */
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .subtitle{
+        font-size:16px;
+    }
+
+    .cta-btn{
+        font-size:20px;
+        padding:20px;
+    }
+
 }
 </style>
-
 </head>
 <body>
 
-<div id="particles-js"></div>
-
-<div class="top-bar">
-🎯 APROVEITE AGORA AS MELHORES PROMOÇÕES DE 2026!
-</div>
-
 <div class="container">
 
-<div class="title">
-🔥 O grupo secreto com as <b style="color:#1eb857">melhores promoções</b> da internet
+    <div class="top-badge">
+        🎯 APROVEITE AS MELHORES OFERTAS
+    </div>
+
+    <section class="hero">
+
+        <h1>
+            PAGUE MAIS<br>
+            BARATO
+            <span>NO QUE VOCÊ JÁ COMPRA</span>
+        </h1>
+
+        <p class="subtitle">
+            Os melhores achados pra academia, moda, casa e muito mais.<br>
+            Promoções reais, cupons e ofertas todos os dias.
+        </p>
+
+        <div class="image-area">
+
+            <!-- SUA IMAGEM -->
+            <img src="Logo transparente.png" alt="Pessoa apontando" class="main-image">
+
+        </div>
+
+        <div class="vou">
+            <img src="caixas.png" class="boxes">
+        </div>
+    </section>
+
 </div>
 
-<div class="subtitle">
-Produtos com até 70% OFF 🤩
+<div class="cta-wrapper">
+    <a href="https://chat.whatsapp.com/H8K1yyBCtPl81aVTlQmXXl" class="cta-btn" target="_blank">
+        <img src="icone_wpp.jpg" class="wpp"> ENTRAR NO GRUPO
+    </a>
 </div>
 
-<div class="card">
-    <img style="width:210px; border-radius: 5px;" src="LogoCanarinho.png" />
-</div>
-
-<a href="https://chat.whatsapp.com/H8K1yyBCtPl81aVTlQmXXl" target="_blank" class="btn">
-QUERO ENTRAR NO GRUPO
-</a>
-
-<div class="members">
-💥 JÁ SOMOS +15.000 MEMBROS 💥
-</div>
-
-</div>
-
-<div class="footer">
-Direitos Reservados
-</div>
-
-<!-- SCRIPT DAS PARTÍCULAS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<script>
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 80 },
-    "color": { "value": "#00ffcc" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.5 },
-    "size": { "value": 3 },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#00ffcc",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 2
-    }
-  },
-  "interactivity": {
-    "events": {
-      "onhover": { "enable": true, "mode": "repulse" }
-    }
-  }
-});
-</script>
-
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -182,10 +245,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1649343092733457');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1649343092733457&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 </body>
 </html>
+
